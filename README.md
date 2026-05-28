@@ -299,18 +299,3 @@ python tools/inspect_dataset.py --root data/toy
 python run.py --config configs/ciprec_toy.yaml
 python evaluate.py --checkpoint outputs/toy/best.pt --split test
 ```
-
----
-
-## 📌 Citation placeholder
-
-If this code is used for the paper artifact, cite your CIPRec paper after the final bibliographic information is ready.
-
-```bibtex
-@inproceedings{ciprec2026,
-  title     = {CIPRec: A Multimedia Session Recommender System Based on Context-Indexed Probabilistic Neural Processes},
-  author    = {Anonymous},
-  booktitle = {Proceedings of ACM ICMR},
-  year      = {2026}
-}
-```
