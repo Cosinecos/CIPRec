@@ -1,0 +1,17 @@
+flowchart LR
+  S[Session s=<i1,...,iT>] --> E[Session Encoder E]
+  E --> U[u_*]
+  U --> CI[Context Indexing: Top-C similar sessions]
+  CI --> C[Context set C_*={(u_c,v_c)}]
+  C --> D[Deterministic Summary c_*=Agg(phi(u_c,v_c))]
+  D --> P[Prior p(eta|C_*)]
+  D --> Q[Posterior q(eta|C_*,u_*,v_*) train only]
+  P --> Z[Latent samples eta^(k)]
+  Q -.KL.-> L[ELBO Loss]
+  Z --> DEC[Multi-sample Decoder psi]
+  U --> DEC
+  D --> DEC
+  DEC --> R[q_* = average decoded queries]
+  R --> H[Full-item Ranking q_*^T e(i)]
+  H --> TOP[Top-N / HR / MRR / COV]
+  H -.CE.-> L

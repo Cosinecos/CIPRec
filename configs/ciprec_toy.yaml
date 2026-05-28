@@ -1,0 +1,45 @@
+seed: 42
+device: auto
+
+data:
+  root: data/toy
+  max_len: 12
+  num_workers: 0
+
+model:
+  embed_dim: 32
+  hidden_dim: 32
+  latent_dim: 32
+  dropout: 0.10
+  encoder_layers: 1
+  use_layer_norm: true
+  use_gru: false
+
+context:
+  top_c: 4
+  pool_ratio: 0.30
+  chunk_size: 1024
+  refresh_each_epoch: true
+  normalize: true
+
+sampling:
+  train_k: 2
+  eval_k: 3
+
+train:
+  epochs: 2
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.00001
+  beta: 0.001
+  grad_clip: 5.0
+  patience: 2
+  amp: false
+  log_interval: 20
+
+eval:
+  topk: [5, 10, 20]
+
+output:
+  dir: outputs/toy
+  save_best: true

@@ -1,0 +1,17 @@
+[project]
+name = "ciprec"
+version = "0.1.0"
+description = "Context-Indexed Probabilistic Neural Processes for session retrieval recommendation"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "torch>=2.0.0",
+  "numpy>=1.23.0",
+  "pandas>=1.5.0",
+  "pyyaml>=6.0",
+  "tqdm>=4.65.0",
+  "scikit-learn>=1.2.0",
+]
+
+[tool.setuptools]
+packages = ["ciprec"]

@@ -1,0 +1,45 @@
+seed: 42
+device: auto
+
+data:
+  root: data/retailrocket
+  max_len: 20
+  num_workers: 4
+
+model:
+  embed_dim: 100
+  hidden_dim: 100
+  latent_dim: 100
+  dropout: 0.20
+  encoder_layers: 1
+  use_layer_norm: true
+  use_gru: false
+
+context:
+  top_c: 32
+  pool_ratio: 0.10
+  chunk_size: 8192
+  refresh_each_epoch: true
+  normalize: true
+
+sampling:
+  train_k: 5
+  eval_k: 10
+
+train:
+  epochs: 20
+  batch_size: 100
+  lr: 0.001
+  weight_decay: 0.00001
+  beta: 0.001
+  grad_clip: 5.0
+  patience: 5
+  amp: true
+  log_interval: 50
+
+eval:
+  topk: [5, 10, 20]
+
+output:
+  dir: outputs/retailrocket
+  save_best: true
